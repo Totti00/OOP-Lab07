@@ -17,6 +17,14 @@ package it.unibo.oop.lab.enum2;
  */
 public enum Sport {
 
+	BASKET(5, "basket", Place.Indoor),
+    SOCCER(11, "soccer", Place.Outdoor),
+    TENNIS(1, "tennis", Place.Outdoor),
+    BIKE(1, "bike", Place.Outdoor),
+    F1(1, "f1", Place.Outdoor),
+    MOTOGP(1, "motogp", Place.Outdoor),
+    VOLLEY(6, "volley", Place.Indoor);
+	
     /*
      * TODO
      * 
@@ -37,7 +45,9 @@ public enum Sport {
      * - soccer
      * 
      */
-
+	private final Place place;
+	private final int nMember;
+	private final String nTeam;
     /*
      * TODO
      * 
@@ -45,7 +55,39 @@ public enum Sport {
      * 
      * Declare required fields
      */
+	private Sport(final int noTeamMembers, final String actualName, final Place place) {
+		this.place = place;
+		this.nMember = noTeamMembers;
+		this.nTeam = actualName;
+	}
 
+	public Place getPlace() {
+		return this.place;
+	}
+
+	public String toString() {
+		return "Sport [NameTeam()=" + this.nTeam + ", NumberOfMember()="
+				+ this.nMember + ", Place=" + this.place + "]";
+	}
+	
+	public boolean isIndividualSport(final Sport s) {
+		return s.nMember == 1;
+	}
+	
+	public boolean isIndoorSport(final Sport s) {
+		return s.place == Place.Indoor;
+	}
+
+	public int getnMember() {
+		return this.nMember;
+	}
+
+	public String getnTeam() {
+		return this.nTeam;
+	}
+	
+	
+	
     /*
      * TODO
      * 
@@ -56,6 +98,7 @@ public enum Sport {
      * - Sport(final Place place, final int noTeamMembers, final String actualName)
      */
 
+	
     /*
      * TODO
      * 
